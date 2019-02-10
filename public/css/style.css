@@ -1,0 +1,98 @@
+* {
+  font-family: "Major Mono Display", monospace;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url("../../public/images/mountain1.jpg");
+  background-repeat: no-repeat;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+#pageTitle {
+  padding-left: 2rem;
+  margin-top: 4rem;
+}
+#pageTitle .solid {
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 0 auto;
+  opacity: 0;
+  transition: opacity 2s ease-in;
+}
+#pageTitle .fade {
+  opacity: 1;
+}
+#pageTitle .start {
+  margin-top: 3rem;
+}
+#pageTitle .start ul {
+  width: 100%;
+  list-style: none;
+  padding: auto;
+}
+#pageTitle .start ul li {
+  float: left;
+  margin-left: 1rem;
+}
+#pageTitle .start ul li .inputs:hover {
+  background-color: #0000005f;
+}
+#pageTitle .start ul li .btn {
+  border: 1px inset #00000027;
+  font-size: 0.7rem;
+  padding: 0.5rem;
+}
+#pageTitle .start ul li .btn:hover {
+  background-color: #0000005f;
+}
+
+#mesTaches {
+  margin: 6rem;
+  list-style: none;
+}
+#mesTaches li {
+  border: 1px solid;
+  padding: 0.2rem 1rem;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 0.2rem;
+}
+#mesTaches li i {
+  float: right;
+  padding: auto;
+  margin: 0 auto;
+  margin-left: 0.5rem;
+}
+#mesTaches li i:hover {
+  color: red;
+}
+
+.red {
+  background-color: red;
+}
+
+/** usend in main.js*/
+.done {
+  background-color: #00000027;
+}
+
+.inputs {
+  background-color: #00000027;
+  border: 1px inset #00000027;
+  padding: 0.1rem;
+}
+
+.fa-save {
+  padding-top: 0.2rem;
+}
+
+/*# sourceMappingURL=style.css.map */
