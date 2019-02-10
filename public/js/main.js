@@ -54,22 +54,46 @@ let ajouterTache = () => {
                     listeParent.innerHTML = ''; //suppression des icones
                     listeParent.innerHTML = `<i class="fas fa-save"></i>`
                     listeParent.appendChild(newInput);
-
-                    /** FONCTION POUR SAUVEGARDER */
-                    document.ge
                 };
             };
-
-
+            
         } else if (even.target.classList.value === ' far fa-check-square') {
             for (let i = 0; i < checks.length; i++) {
                 if (even.target == checks[i]){
                     trashes[i].parentElement.classList.toggle('done');       
                 };
             };
+        };
 
+        /** FONCTION POUR SAUVEGARDER */
+        let save = document.getElementsByClassName('fa-save')[0];
+        let saved = () => {
 
-        }
+        let laListe = document.getElementsByTagName('li');
+            
+            for (let i =0; i< laListe.length; i++) {
+                if (laListe[i] == save.parentElement){
+                    let li = laListe[i];
+                    let monTexte = li.innerText = li.lastChild.value
+
+                    console.dir(li);
+                    let trash = document.createElement('i');
+                    trash.classList.add('far');
+                    trash.classList.add('fa-trash-alt');
+                    let edit = document.createElement('i');
+                    edit.classList.add('far');
+                    edit.classList.add('fa-edit');
+                    let check = document.createElement('i');
+                    check.classList.add('far');
+                    check.classList.add('fa-check-square');
+                    li.appendChild(trash);
+                    li.appendChild(edit);
+                    li.appendChild(check);
+
+                };
+            };
+        };
+        save.addEventListener('click', saved);
     }
 
     let trash = document.getElementsByClassName('fa-trash-alt')[0];
