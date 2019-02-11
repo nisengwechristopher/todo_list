@@ -1,7 +1,6 @@
 
 /** ***** OPACITÉ DU TITRE *****/
 
-
 var textTransform = () => {
     
     var monTitre = document.querySelector('#pageTitle h1');
@@ -9,20 +8,15 @@ var textTransform = () => {
 }
 window.setTimeout(textTransform,1000)
 
-
-/*****************************************************************
- * ******************************************************* */
-
+/********************************************************** */
 /** ***** CRÉATION DES TÂCHES *****/
 
-
 let leBouton  = document.getElementsByClassName('btn')[0];
-
 
 let ajouterTache = () => {
     
     let leInput = document.querySelector('#pageTitle input');
-   
+
     if (leInput.value != '') {
         let mesTaches = document.getElementById('mesTaches');
         let laTache = document.createElement('li');
@@ -30,21 +24,34 @@ let ajouterTache = () => {
         mesTaches.prepend(laTache);
     }
 /** changer les inputs */
- 
     let changerIcones = (even) => {
         let trashes = document.getElementsByClassName('fa-trash-alt');
         let edits =  document.getElementsByClassName('fa-edit');
         let checks = document.getElementsByClassName('fa-check-square');
-        
+
+        /** suppression de la tache */
         if (even.target.classList.value === ' far fa-trash-alt') {
+
             for (let i = 0; i < trashes.length; i++) {
                 if (even.target == trashes[i]){
                     trashes[i].parentElement.remove();
                 };
             };
+        }
+        /** tâche : fait ou à faire  */
+        if (even.target.classList.value === ' far fa-check-square') {
+            for (let i = 0; i < checks.length; i++) {
+                if (even.target == checks[i]){
+                    trashes[i].parentElement.classList.toggle('done');       
+                };
+            };
+        };
 
-        } else if (even.target.classList.value === ' far fa-edit') {
+        /** modification */
+        if (even.target.classList.value === ' far fa-edit') {
+            
             for (let i = 0; i < edits.length; i++) {
+                
                 if (even.target == edits[i]){
                     let listeParent = edits[i].parentElement;
                     let newInput = document.createElement('input');
@@ -57,78 +64,51 @@ let ajouterTache = () => {
                 };
             };
             
-        } else if (even.target.classList.value === ' far fa-check-square') {
-            for (let i = 0; i < checks.length; i++) {
-                if (even.target == checks[i]){
-                    trashes[i].parentElement.classList.toggle('done');       
-                };
-            };
+        }
+
+        /**fonction pour sauvegarder */
+
+        let save = document.getElementsByClassName('fa-save');
+        
+        let saved = (even) => {
+            console.dir(even.parentElement.children[1]);
+
+            let contenuInput = even.parentElement.children[1].value;
+            even.parentElement.children[1].remove() //suppression de l'input
+            even.parentElement.innerHTML = contenuInput + ` <i class=" far fa-trash-alt"></i> <i class=" far fa-edit"></i> <i class=" far fa-check-square"></i>`;// remplacement de l'input
+               
+                    let trash = document.getElementsByClassName('fa-trash-alt')[0];
+                    let edit =  document.getElementsByClassName('fa-edit')[0];
+                    let check = document.getElementsByClassName('fa-check-square')[0];
+                    
+                    /** FOR POUR LES ADDDEVENTLISTENER */
+                    
+                    
+                    trash.addEventListener('click', changerIcones);
+                    edit.addEventListener('click', changerIcones);
+                    check.addEventListener('click', changerIcones);
+
         };
-
-        /** FONCTION POUR SAUVEGARDER */
-        let save = document.getElementsByClassName('fa-save')[0];
-        let saved = () => {
-
-        let laListe = document.getElementsByTagName('li');
-            
-            for (let i =0; i< laListe.length; i++) {
-                if (laListe[i] == save.parentElement){
-                    let li = laListe[i];
-                    let monTexte = li.innerText = li.lastChild.value
-
-                    console.dir(li);
-                    let trash = document.createElement('i');
-                    trash.classList.add('far');
-                    trash.classList.add('fa-trash-alt');
-                    let edit = document.createElement('i');
-                    edit.classList.add('far');
-                    edit.classList.add('fa-edit');
-                    let check = document.createElement('i');
-                    check.classList.add('far');
-                    check.classList.add('fa-check-square');
-                    li.appendChild(trash);
-                    li.appendChild(edit);
-                    li.appendChild(check);
-
-                };
-            };
+        for (let i = 0; i < save.length; i++) {
+        save[i].addEventListener('click', (event) => {
+            saved(event.target);
+        });
         };
-        save.addEventListener('click', saved);
-    }
+        
 
+    };
+    
     let trash = document.getElementsByClassName('fa-trash-alt')[0];
     let edit =  document.getElementsByClassName('fa-edit')[0];
     let check = document.getElementsByClassName('fa-check-square')[0];
-
+    
+    /** FOR POUR LES ADDDEVENTLISTENER */
+    
+    
     trash.addEventListener('click', changerIcones);
     edit.addEventListener('click', changerIcones);
     check.addEventListener('click', changerIcones);
+    
 }
 
 leBouton.addEventListener('click', ajouterTache);
-
-
-/**
- * 
-    *les ecouteurs d'evenements sur les icones
-    let trashes = document.getElementsByClassName('fa-trash-alt');
-    for (let i = 0; i < trashes.length; i++) {
-        trashes[i].addEventListener('click', (event) => {
-            changerIcones(event.target);
-        });
-    };
-
-    let edits =  document.getElementsByClassName('fa-edit');
-    for (let i = 0; i < edits.length; i++) {
-        edits[i].addEventListener('click', (event) => {
-            changerIcones(event.target);
-        });
-    };
-
-    let checks = document.getElementsByClassName('fa-check-square');
-    for (let i = 0; i < checks.length; i++) {
-        checks[i].addEventListener('click', (event) => {
-            changerIcones(event.target);
-        });
-    };
- */
