@@ -106,6 +106,9 @@ img {
 /**********************************************************/
 /**********************************************************/
 @media (max-width: 420px) {
+  #pageTitle {
+    margin-top: 1.5rem;
+  }
   #pageTitle .titre {
     font-size: 0.9rem;
   }
@@ -149,10 +152,18 @@ img {
     margin-left: 0.4rem;
   }
 }
+@media (min-width: 425px) and (max-width: 768px) {
+  #pageTitle .titre {
+    font-size: 2rem;
+  }
+}
 /********************/
 @media (min-width: 320px) and (max-width: 768px) {
   #pageTitle .titre {
     font-size: 1.4rem;
+  }
+  #pageTitle .start {
+    margin-top: 1.6rem;
   }
   #pageTitle li {
     margin-left: 0.2rem;
@@ -170,11 +181,6 @@ img {
     padding: 0.2rem;
   }
 
-  .inputs {
-    margin-bottom: 0.6rem;
-    font-size: 0.5rem;
-  }
-
   .container {
     padding-top: 3rem;
   }
@@ -187,20 +193,23 @@ img {
     margin-bottom: 0.2rem;
     margin-right: auto;
     margin-left: auto;
-    font-size: 0.5rem;
+    font-size: 0.8rem;
   }
   #mesTaches li i {
-    font-size: 0.5rem;
-    margin-left: 0.4rem;
+    font-size: 0.8rem;
+    margin-left: 0.6rem;
   }
 }
 /********************/
-@media (min-width: 768px) and (max-width: 2000px) {
+@media (min-width: 768px) and (max-width: 1444px) {
   #pageTitle .titre {
-    font-size: 2rem;
+    font-size: 2.5rem;
+  }
+  #pageTitle .start {
+    margin-top: 1.8rem;
   }
   #pageTitle li {
-    margin-left: 0.2rem;
+    margin-left: 0.8rem;
     padding-top: 3rem;
   }
   #pageTitle li h3 {
@@ -209,17 +218,12 @@ img {
     margin-bottom: 0.5rem;
   }
   #pageTitle li .inputs {
-    margin-bottom: 0.6rem;
-    font-size: 0.8rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
   }
   #pageTitle li .btn {
-    font-size: 0.8rem;
+    font-size: 1rem;
     padding: 0.2rem;
-  }
-
-  .inputs {
-    margin-bottom: 1rem;
-    font-size: 0.8rem;
   }
 
   .container {
@@ -237,7 +241,57 @@ img {
     font-size: 1rem;
   }
   #mesTaches li i {
-    font-size: 0.9rem;
+    font-size: 1rem;
+    margin-left: 0.4rem;
+  }
+}
+@media (min-width: 1444px) {
+  #pageTitle .titre {
+    font-size: 3.5rem;
+    padding-top: 3rem;
+  }
+  #pageTitle .start {
+    margin-top: 2rem;
+  }
+  #pageTitle .start li {
+    margin-left: 0.2rem;
+    padding-top: 4rem;
+  }
+  #pageTitle .start h3 {
+    padding-left: 4rem;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  #pageTitle .start .inputs {
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+  }
+  #pageTitle .start .btn {
+    font-size: 1.5rem;
+    padding: 0.2rem;
+  }
+  #pageTitle .start .inputs {
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+  }
+
+  .container {
+    padding-top: 6rem;
+  }
+
+  #mesTaches {
+    width: 100%;
+    padding-top: 3rem;
+  }
+  #mesTaches li {
+    width: 90%;
+    margin-bottom: 0.5rem;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 2rem;
+  }
+  #mesTaches li i {
+    font-size: 2rem;
     margin-left: 0.4rem;
   }
 }
